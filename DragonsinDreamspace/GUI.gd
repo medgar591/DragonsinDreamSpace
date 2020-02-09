@@ -67,7 +67,7 @@ func hideEffects():
 
 func _on_Message_submitted():
 	if currentSpeaker == 0:
-		displayMessage("Torgan Simtral III", entry.text)
+		displayMessage("Julia Kai'sson", entry.text)
 	else:
 		displayMessage("Agatha Longinus", entry.text)
 	hideEntry()
