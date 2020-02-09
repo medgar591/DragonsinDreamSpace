@@ -69,7 +69,7 @@ func _on_Message_submitted():
 	if currentSpeaker == 0:
 		displayMessage("Torgan Simtral III", entry.text)
 	else:
-		displayMessage("Sir Longinus", entry.text)
+		displayMessage("Agatha Longinus", entry.text)
 	hideEntry()
 
 func _on_Effect1_pressed():
