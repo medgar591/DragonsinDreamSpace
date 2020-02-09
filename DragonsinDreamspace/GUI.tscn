@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Text_Background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Montserrat-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://GUI.gd" type="Script" id=4]
+
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+use_filter = true
+extra_spacing_bottom = -5
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="GUI" type="MarginContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -513.0
+margin_right = -10.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 10.0
+margin_right = 994.0
+margin_bottom = 503.0
+custom_constants/separation = 50
+alignment = 2
+
+[node name="UpperBox" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 21.0
+margin_right = 984.0
+margin_bottom = 202.0
+custom_constants/separation = 50
+
+[node name="Effect1" type="Button" parent="VBoxContainer/UpperBox"]
+margin_right = 984.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "Rain"
+
+[node name="Effect2" type="Button" parent="VBoxContainer/UpperBox"]
+margin_top = 77.0
+margin_right = 984.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+text = "Falling Leaves"
+
+[node name="Effect3" type="Button" parent="VBoxContainer/UpperBox"]
+margin_top = 154.0
+margin_right = 984.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 1 )
+text = "Inversion"
+
+[node name="MiddleBox" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 252.0
+margin_right = 984.0
+margin_bottom = 353.0
+custom_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MiddleBox"]
+margin_right = 984.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+context_menu_enabled = false
+shortcut_keys_enabled = false
+placeholder_text = "Message goes here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Control" parent="VBoxContainer/MiddleBox"]
+margin_top = 51.0
+margin_right = 984.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 0, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer/MiddleBox/Button"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -147.0
+margin_bottom = 50.0
+focus_mode = 1
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 1
+text = "Submit Message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LowerBox" type="NinePatchRect" parent="VBoxContainer"]
+margin_top = 403.0
+margin_right = 984.0
+margin_bottom = 503.0
+rect_min_size = Vector2( 0, 100 )
+texture = ExtResource( 2 )
+patch_margin_left = 18
+patch_margin_right = 23
+
+[node name="Textbox" type="RichTextLabel" parent="VBoxContainer/LowerBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[b][color=aqua]Torgan Simtral III[/color][/b]
+I am sending you a message. 	[wave amp=50 freq=2]>>>[/wave]"
+text = "Torgan Simtral III
+I am sending you a message. 	>>>"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/UpperBox/Effect1" to="." method="_on_Effect1_pressed"]
+[connection signal="pressed" from="VBoxContainer/UpperBox/Effect2" to="." method="_on_Effect2_pressed"]
+[connection signal="pressed" from="VBoxContainer/UpperBox/Effect3" to="." method="_on_Effect3_pressed"]
+[connection signal="pressed" from="VBoxContainer/MiddleBox/Button/Button" to="." method="_on_Message_submitted"]

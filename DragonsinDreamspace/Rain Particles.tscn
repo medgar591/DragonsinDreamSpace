@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/pixel.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.423529, 0.756863, 0.976471, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+
+[node name="Rain Particles" type="CPUParticles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.87381, 0 )
+amount = 400
+lifetime = 20.0
+randomness = 0.1
+local_coords = false
+mesh = SubResource( 3 )
+emission_shape = 2
+emission_box_extents = Vector3( 50, 1, 50 )
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+initial_velocity = 20.0
+initial_velocity_random = 0.25
+scale_amount = 0.25
+scale_amount_random = 0.05

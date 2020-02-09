@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Courtyard2-convcolonly.glb" type="PackedScene" id=1]
+
+[node name="Spatial" type="StaticBody"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Courtyard2-convcol" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70716, 4.19776, -0.176204 )
